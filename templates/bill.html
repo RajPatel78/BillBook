@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Bill</title>
+
+    <style>
+        .headtext{
+            margin-top: 100px ;
+            text-align: center;
+        }
+        .addresstable{
+           align-items: center;
+           margin-left: 10%;
+           margin-right: 10%;
+            width: 80%;
+            height: 200px;
+            
+        }
+        .myaddress{
+            margin:0;
+            padding:0;
+  
+
+        }
+        .clientdetail{
+            width: 50%;
+        }
+        .clientaddress{
+            margin-left: 10%;
+            width: 40%;
+            margin-top: 50px;
+        }
+        .greeting{
+            margin-left: 10%;
+            width: 80%;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tablealign{
+
+        margin-left: 10%;
+            width: 80%;
+
+        }
+
+    </style>
+
+
+</head>
+<body>
+<p> <b><h6 class="headtext">I N V O I C E </h6></b></p>
+
+
+<table class="table table-bordered addresstable">
+    
+    <tbody>
+      <tr>
+        
+        <td class="clientdetail"><div >
+            <textarea class="form-control " id="t2" rows="7"></textarea>
+            
+          </div></td>
+<!--        <td ><p class="myaddress">B.S Patel</p>-->
+<!--            <p class="myaddress">Architectural & Structural Engineer</p>   -->
+<!--            <p class="myaddress">Kolhapur</p>-->
+<!--            <p class="myaddress">GST IN :-</p>-->
+<!--            <p class="myaddress">A/C No :- 56565656565655656</p>-->
+<!--            <p class="myaddress">(bank name)</p>-->
+<!--            <p class="myaddress">IFSC Code :- 000000000</p>-->
+<!--        </td>-->
+        <td class="clientdetail"><div >
+            <textarea class="form-control " id="t2" rows="7"></textarea>
+
+          </div></td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <div >
+    <textarea class="form-control clientaddress myaddress" id="t3" rows="7"></textarea>
+    
+  </div>
+
+  <div >
+    <textarea class="form-control greeting myaddress" id="t4" rows=""></textarea>
+    
+  </div>
+
+  <!-- Add here table data -->
+  <table class="table table-bordered tablealign">
+  <thead>
+    <tr>
+
+
+      <th scope="col">Sr. No</th>
+      <th scope="col">Decription</th>
+      <th scope="col">Estimate Amount</th>
+      <th scope="col" >Amount</th>
+
+    </tr>
+
+
+  </thead>
+  <tbody>
+  {% for row in data  %}
+
+    <tr>
+
+      <th scope="row">{{row[0][0]}}</th>
+      <td>{{row[0][2]}}</td>
+      <td>{{row[0][3]}}</td>
+      <td ></td>
+    </tr>
+
+  {% endfor %}
+
+  <tr>
+
+    <td scope="row" colspan="2" style="text-align : right">Total</td>
+    <th scope="row">{{sum}}</th>
+    <td></td>
+  </tr>
+
+  <tr>
+
+    <td scope="row" colspan="3" style="text-align : right">Fees for the above work upto this stage is {{workdone}}% of {{fees}}% of Rs.</td>
+    <th scope="row">{{amount}}</th>
+  </tr>
+
+  <tr>
+
+    <td scope="row" colspan="3" style="text-align : right">Less Advavnce</td>
+    <th scope="row">{{paid}}</th>
+  </tr>
+
+  <tr>
+
+    <td scope="row" colspan="3" style="text-align : right">Total</td>
+    <th scope="row">{{total}}</th>
+  </tr>
+
+  <tr>
+
+    <td scope="row" colspan="3" style="text-align : right">Add 9% CGST on Rs {{total}}</td>
+    <th scope="row">{{cgst}}</th>
+  </tr>
+
+  <tr>
+    <td scope="row" colspan="3" style="text-align : right">Add 9% SGST on Rs {{total}}</td>
+    <th scope="row">{{sgst}}</th>
+  </tr>
+
+  <tr>
+
+    <td scope="row" colspan="3" style="text-align : right">Grand Total</td>
+    <th scope="row">{{grand_total}}</th>
+  </tr>
+  </tbody>
+</table>
+
+
+
+  <div >
+    <textarea class="form-control greeting " id="textAreaExample2" rows=""></textarea>
+    
+  </div>
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+
+</html>
